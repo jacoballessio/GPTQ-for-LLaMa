@@ -9,7 +9,7 @@ class custom_BuildExtension(cpp_extension.BuildExtension):
 
     def build_extensions(self):
         for extension in self.extensions:
-            extension.extra_compile_args['nvcc'] = ['-arch={}'.format(arch) for arch in arch_list]
+            extension.extra_compile_args = {'nvcc': ['-arch={}'.format(arch) for arch in arch_list]}
         super().build_extensions()
 
 setup(
